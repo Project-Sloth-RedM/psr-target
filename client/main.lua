@@ -357,7 +357,7 @@ local Functions = {
 										local closestBone2, closestPos2, closestBoneName2 = self:CheckBones(coords, entity, min, max, Config.VehicleBones)
 
 										if closestBone ~= closestBone2 then
-											if IsControlReleased(0, 0x8AAA0AD4) then
+											if IsControlReleased(0, PSRCore.Shared.Keybinds['LALT']) then
 												self:DisableTarget(true)
 											else
 												self:LeftTarget()
@@ -368,7 +368,7 @@ local Functions = {
 											self:EnableNUI(self:CloneTable(sendData))
 											self:DrawOutlineEntity(entity, false)
 										elseif #(playerCoords - coords) > data.distance then
-											if IsControlReleased(0, 0x8AAA0AD4) then
+											if IsControlReleased(0, PSRCore.Shared.Keybinds['LALT']) then
 												self:DisableTarget(true)
 											else
 												self:LeftTarget()
@@ -376,7 +376,7 @@ local Functions = {
 											self:DrawOutlineEntity(entity, false)
 										end
 									else
-										if IsControlReleased(0, 0x8AAA0AD4) then
+										if IsControlReleased(0, PSRCore.Shared.Keybinds['LALT']) then
 											self:DisableTarget(true)
 										else
 											self:LeftTarget()
@@ -386,7 +386,7 @@ local Functions = {
 									end
 									Wait(5)
 								end
-								if IsControlReleased(0, 0x8AAA0AD4) then
+								if IsControlReleased(0, PSRCore.Shared.Keybinds['LALT']) then
 									self:DisableTarget(true)
 								else
 									self:LeftTarget()
@@ -440,7 +440,7 @@ local Functions = {
 									local playerCoords = GetEntityCoords(playerPed)
 									local _, coords, entity2 = self:RaycastCamera(hit)
 									if not zone:isPointInside(coords) then
-										if IsControlReleased(0, 0x8AAA0AD4) then
+										if IsControlReleased(0, PSRCore.Shared.Keybinds['LALT']) then
 											self:DisableTarget(true)
 										else
 											self:LeftTarget()
@@ -450,7 +450,7 @@ local Functions = {
 										self:EnableNUI(self:CloneTable(sendData))
 										self:DrawOutlineEntity(entity, false)
 									elseif #(playerCoords - zone.center) > zone.targetoptions.distance then
-										if IsControlReleased(0, 0x8AAA0AD4) then
+										if IsControlReleased(0, PSRCore.Shared.Keybinds['LALT']) then
 											self:DisableTarget(true)
 										else
 											self:LeftTarget()
@@ -459,7 +459,7 @@ local Functions = {
 									end
 									Wait(5)
 								end
-								if IsControlReleased(0, 0x8AAA0AD4) then
+								if IsControlReleased(0, PSRCore.Shared.Keybinds['LALT']) then
 									self:DisableTarget(true)
 								else
 									self:LeftTarget()
@@ -538,7 +538,7 @@ local Functions = {
 				local _, coords, entity2 = self:RaycastCamera(hit)
 				local distance = #(playerCoords - coords)
 				if entity ~= entity2 then
-					if IsControlReleased(0, 0x8AAA0AD4) then
+					if IsControlReleased(0, PSRCore.Shared.Keybinds['LALT']) then
 						self:DisableTarget(true)
 					else
 						self:LeftTarget()
@@ -551,7 +551,7 @@ local Functions = {
 				else
 					for k, v in pairs(send_distance) do
 						if v and distance > k then
-							if IsControlReleased(0, 0x8AAA0AD4) then
+							if IsControlReleased(0, PSRCore.Shared.Keybinds['LALT']) then
 								self:DisableTarget(true)
 							else
 								self:LeftTarget()
@@ -563,7 +563,7 @@ local Functions = {
 				end
 				Wait(5)
 			end
-			if IsControlReleased(0, 0x8AAA0AD4) then
+			if IsControlReleased(0, PSRCore.Shared.Keybinds['LALT']) then
 				self:DisableTarget(true)
 			else
 				self:LeftTarget()
@@ -759,7 +759,7 @@ CreateThread(function()
 	while true do
 		Wait(0)
 		if Config.Toggle then
-			if IsControlJustPressed(0, 0x8AAA0AD4) then
+			if IsControlJustPressed(0, PSRCore.Shared.Keybinds['LALT']) then
 				if (not enabled) then
 					ExecuteCommand('+playerTarget')
 					enabled = true
@@ -769,12 +769,12 @@ CreateThread(function()
 				end
 			end
 		else
-			if IsControlPressed(0, 0x8AAA0AD4) then
+			if IsControlPressed(0, PSRCore.Shared.Keybinds['LALT']) then
 				if (not enabled) then
 					ExecuteCommand('+playerTarget')
 					enabled = true
 				end
-			elseif IsControlReleased(0, 0x8AAA0AD4) then
+			elseif IsControlReleased(0, PSRCore.Shared.Keybinds['LALT']) then
 				if enabled then
 					ExecuteCommand('-playerTarget')
 					enabled = false
